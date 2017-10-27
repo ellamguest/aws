@@ -8,6 +8,7 @@ Created on Wed Oct 11 17:47:48 2017
 
 import pandas as pd
 import glob 
+import os
 
 dtypes = {
         'archived': 'str',
@@ -16,8 +17,9 @@ dtypes = {
         'score_hidden': 'str'
         }
 
-path = '/Users/emg/Programming/GitHub/aws/raw_data'
-files = glob.glob(path + "/*")
+#path = '/Users/emg/Programming/GitHub/aws/raw_data'
+path = os.getcwd()
+files = glob.glob(path + "/td-all-comments000000000*")
 dfs = []
 for f in files:
     print(f)

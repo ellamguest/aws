@@ -45,8 +45,11 @@ def plot_monthly_change(df):
     ax.set_xticklabels(labels)
 
     plt.axhline(y=0, color='black')
+    
     plt.title('Monthly % change in comment (red) & author (blue) counts for r/The_Donald')
+    plt.savefig('/Users/emg/Programming/GitHub/aws/images/td-monthly-change.png', dpi=100)
     plt.show()
+
 
 subset = df.drop([df.index[0]])
 plot_monthly_change(subset)
@@ -66,7 +69,10 @@ def plot_monthly_counts():
     ax2.set_ylabel('Number of Unique Authors')
     plt.xticks(df.index, labels, rotation='vertical')
     plt.title('Monthly Comment (red) & Author (blue) Counts for r/The_Donald')
+    plt.savefig('/Users/emg/Programming/GitHub/aws/images/td-monthly-counts.png', dpi=100)
     plt.show()
+
+plot_monthly_counts()
  
 def plot_ratio():  
     df['a_c_ratio'] = df['authors'].divide(df['comments'])
@@ -80,7 +86,10 @@ def plot_ratio():
     ax.set_ylabel('Ratio')
     plt.xticks(df.index, labels, rotation='vertical')
     plt.title('Monthly Ratio of unique authors to comments in r/The_Donald')
+    plt.savefig('/Users/emg/Programming/GitHub/aws/images/td-monthly-ratio.png', dpi=100)
     plt.show()
+
+plot_ratio()
     
 def plot_am_counts():    
     labels = pd.to_datetime(df.date).dt.strftime('%m-%y')
@@ -102,4 +111,7 @@ def plot_am_counts():
     ax2.legend(loc=(0.015,0.8))
     
     plt.title('Monthly Comment & Author Counts for r/The_Donald')
+    plt.savefig('/Users/emg/Programming/GitHub/aws/images/td-monthly-am-counts.png', dpi=100)
     plt.show()
+
+plot_am_counts()
